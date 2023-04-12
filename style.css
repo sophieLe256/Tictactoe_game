@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto+Slab:wght@300;400&family=Roboto:ital,wght@0,300;0,400;0,500;1,100&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Pacifico';
+}
+
+.background {
+    /* background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(0, 0, 0)); */
+    background: black;
+    height: 100vh;
+    padding-top: 1px;
+}
+
+.title {
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 10%;
+}
+
+.display {
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.hide {
+    display: none;
+}
+
+/* Tic tac toe board game */
+.container {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 33% 33% 33%;
+    max-width: 300px;
+
+}
+
+.tile {
+    border: 3px solid white;
+    min-height: 100px;
+    min-width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.playerX {
+    color: rgb(240, 27, 27);
+}
+
+.playerO{
+    color: rgb(235, 226, 57);
+}
+
+.controls {
+    display: flex;
+    flex-direction: row;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    font-size: 20px;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+#reset {
+    background-color: rgb(89, 210, 95);
+    color: white;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid black;
+    box-shadow: 0.5px 0.5px rgb(165, 161, 161);
+    font-size: 20px;
+    margin-left: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 47%;
+}
+
+
