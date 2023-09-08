@@ -1,0 +1,55 @@
+*{
+    background-color: rgb(167, 142, 152);
+}
+
+.container{
+    width: 400px;
+    height: 500px;
+    margin: auto;
+}
+
+.row{
+    display: flex;
+    flex-grow: 1;
+    background-color: transparent;
+}
+.gameBoard{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.btn {
+    flex-grow: 1;
+    margin: 5px;
+    font-size: 5em;
+    font-weight: bold;
+    width: 90px;
+    height: 90px;
+}
+.title {
+    margin-top: 30px;
+    font-size: 3em;
+    text-align: center;
+    color: white;
+}
+.controls{
+    text-align: center;
+}
+.xbtn{
+    color: black;
+}
+.obtn{
+    color: red;
+}
+
+.reset{
+    color: white;
+    width: 70px;
+    height: 30px;
+    margin-top: 20px;
+}
+.reset:hover{
+    background-color: rgb(18, 84, 91);
+}

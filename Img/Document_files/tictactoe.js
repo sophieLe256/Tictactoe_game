@@ -10,18 +10,18 @@ function play(btn) {
         turn = !turn; // Toggle the turn correctly
         clickedCount++;
 
-        // if (checkWin()) {
-        //     gameActive = false;
-        //     document.querySelector('.result-message').innerText = `Player ${currentPlayer} wins!`;
-        // } else if ([...cells].every(cell => cell.innerText !== '')) {
-        //     gameActive = false;
-        //     document.querySelector('.result-message').innerText = "It's a draw!";
-        // } else {
-        //     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-        // }
+        if (checkWin()) {
+            gameActive = false;
+            document.querySelector('.result-message').innerText = `Player ${currentPlayer} wins!`;
+        } else if ([...cells].every(cell => cell.innerText !== '')) {
+            gameActive = false;
+            document.querySelector('.result-message').innerText = "It's a draw!";
+        } else {
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        }
 
-        if (clickedCount >= 16) {
-            alert("Game over!!!");
+        if (clickedCount >= 16) { // Change to 9 for a 3x3 board
+            alert("Game over!!! It's a draw.");
         }
     }
 }
