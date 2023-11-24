@@ -1,51 +1,77 @@
-let turn = true;
-let clickedCount = 0;
+const cells = document.querySelectorAll(".cell");
+const statusText = document.querySelector("#statusText");
+const restartBtn = document.querySelector("#resetBtn");
 
-function play(btn) {
-    if (btn.innerText === "") { // Check if the button is empty before allowing a move
-        btn.innerText = turn ? "X" : "O";
-        btn.classList.add(turn ? "xbtn" : "obtn");
-        btn.setAttribute("disabled", "disabled");
+const winConditions = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6],
+];
 
-        turn = !turn; // Toggle the turn correctly
-        clickedCount++;
+let options = ["", "", "", "", "", "", "", "", ""];
+let currentPlayer = "X";
+let running = false;
 
-        // if (checkWin()) {
-        //     gameActive = false;
-        //     document.querySelector('.result-message').innerText = `Player ${currentPlayer} wins!`;
-        // } else if ([...cells].every(cell => cell.innerText !== '')) {
-        //     gameActive = false;
-        //     document.querySelector('.result-message').innerText = "It's a draw!";
-        // } else {
-        //     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-        // }
+initializeGame();
 
-        if (clickedCount >= 16) {
-            alert("Game over!!!");
-        }
-    }
+function initializeGame() {
+  cells.forEach(cell => cell.addEventListener("click", cellClicked));
+  restartBtn.addEventListener("click", restartGame);
+  statusText.textContent = `${currentPlayer}'s turn`;
+  running = true;
 }
 
+function cellClicked() {
+  const cellIndex = this.getAttribute("cellIndex");
 
+  if (options[cellIndex] !== "" || !running) {
+    return;
+  }
 
-function resetGame() {
-    if (!confirm('Do you want to reset the game?')) {
-        return;
-    }
-
-    let btns = document.getElementsByClassName('btn');
-
-    for (const element of btns) {
-        element.innerText = "";
-        element.classList.remove("xbtn");
-        element.classList.remove("obtn");
-        element.removeAttribute("disabled");
-    }
-
-    turn = true;
-    clickedCount = 0;
-
+  updateCell(this, cellIndex);
+  checkWinner();
 }
-function checkWin() {
-    // Check winning conditions and return true if a player wins
+
+function updateCell(cell, index) {
+  options[index] = currentPlayer;
+  cell.textContent = currentPlayer;
+}
+
+function checkWinner() {
+  for (let i = 0; i < winConditions.length; i++) {
+    const [a, b, c] = winConditions[i];
+    if (
+      options[a] !== "" &&
+      options[a] === options[b] &&
+      options[a] === options[c]
+    ) {
+      statusText.textContent = `${currentPlayer}'s win!`;
+      running = false;
+      return;
+    }
+  }
+
+  if (!options.includes("")) {
+    statusText.textContent = `Draw!`;
+    running = false;
+    return;
+  }
+
+  currentPlayer = currentPlayer === "X" ? "O" : "X";
+  statusText.textContent = `${currentPlayer}'s turn`;
+}
+
+function restartGame() {
+  currentPlayer = "X";
+  options = ["", "", "", "", "", "", "", "", ""];
+  statusText.textContent = `${currentPlayer}'s turn`;
+  cells.forEach(cell => {
+    cell.textContent = "";
+  });
+  running = true;
 }

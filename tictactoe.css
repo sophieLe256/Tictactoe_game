@@ -1,55 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Open+Sans:wght@300;400;500;600;700&family=Pacifico&family=Playpen+Sans:wght@100;300;400;500;600&family=Roboto+Slab:wght@300;400&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,100&display=swap');
+
 *{
-    background-color: rgb(167, 142, 152);
+    background: url("https://wallpapers.com/images/hd/plain-white-background-cnw05vrcsznafb3o.jpg");
+    font-family: 'Bungee Spice', sans-serif;
 }
 
-.container{
+.container {
     width: 400px;
     height: 500px;
     margin: auto;
-}
-
-.row{
     display: flex;
-    flex-grow: 1;
-    background-color: transparent;
-}
-.gameBoard{
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .row {
+    display: flex;
+  }
+  
+  .gameBoard {
     margin-top: 50px;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-}
-
-.btn {
+    align-items: center;
+    color: black;
+  }
+  
+  .cell {
     flex-grow: 1;
     margin: 5px;
     font-size: 5em;
     font-weight: bold;
-    width: 90px;
-    height: 90px;
-}
-.title {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    cursor: pointer;
+    border: 2px solid black;
+  }
+  
+  .cell:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .title {
     margin-top: 30px;
-    font-size: 3em;
+    font-size: 5em;
     text-align: center;
-    color: white;
-}
-.controls{
-    text-align: center;
-}
-.xbtn{
     color: black;
-}
-.obtn{
-    color: red;
-}
-
-.reset{
-    color: white;
-    width: 70px;
-    height: 30px;
+    font-weight: 700;
+  }
+  
+  .controls {
+    text-align: center;
+  }
+  
+  #resetBtn {
+    color: black;
+    width: 100px;
+    height: 50px;
     margin-top: 20px;
-}
-.reset:hover{
+    font-weight: 600;
+    font-size: 2em;
+    background-color: transparent;
+    border: 2px solid black;
+    cursor: pointer;
+  }
+  
+  /* #resetBtn:hover {
     background-color: rgb(18, 84, 91);
-}
+    color: white;
+  }
+   */
